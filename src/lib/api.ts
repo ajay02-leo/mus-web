@@ -160,6 +160,13 @@ export const api = {
     delete: (id: string) => request<any>(`/recordings/${id}`, { method: 'DELETE' }),
     studentRecordings: (userId: string) =>
       request<any>(`/recordings/student/${userId}`).then(d => d?.recordings ?? []),
+    get: (id: string) => request<any>(`/recordings/${id}`).then(d => d?.recording),
+  },
+
+  // ─── Gamification ────────────────────────────────────────────────────────────
+  gamification: {
+    leaderboard: () => request<any>('/gamification/leaderboard').then(d => d?.leaderboard ?? []),
+    myBadges:    () => request<any>('/gamification/my-badges'),
   },
 
   // ─── Events ──────────────────────────────────────────────────────────────────
